@@ -22,7 +22,7 @@ public class BarcoDeGuerra extends Barco {
         this.numTripulantesMax += cantidad;
     }
 
-    public void anyadirArmamento(String arma) {
+    public void añadirArmamento(String arma) {
         String[] nuevoArmamento = new String[this.armamento.length + 1];
         for (int i = 0; i < this.armamento.length; i++) {
             nuevoArmamento[i] = this.armamento[i];
@@ -43,9 +43,9 @@ public class BarcoDeGuerra extends Barco {
             armamentoStr.append(arma).append(", ");
         }
         return "Tipo de barco: Barco de Guerra\n" +
-                super.toString() + "\n" +
-                "Armamento: " + armamentoStr.substring(0, armamentoStr.length() - 2) + "\n" +
-                "Número de tripulantes máximo: " + numTripulantesMax + "\n" +
-                "Número de tripulantes actual: " + numTripulantesActual;
+                super.toString()+
+                ",Armamento: " + armamentoStr.substring(0, armamentoStr.length() - 2) +
+                ",Número de tripulantes máximo: " + numTripulantesMax +
+                ",Número de tripulantes actual: " + numTripulantesActual;
     }
 }

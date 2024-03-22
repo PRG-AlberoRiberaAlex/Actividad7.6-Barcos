@@ -2,7 +2,7 @@
 public class BarcoDePesca extends Barco {
 
     private double capacidadCarga;
-    private Red[] redes;
+   protected Red[] redes;
     private int numRedes;
     private double porcentajeCapturasExitosas;
 
@@ -13,8 +13,7 @@ public class BarcoDePesca extends Barco {
         this.numRedes = 0;
         this.porcentajeCapturasExitosas = porcentajeCapturasExitosas;
     }
-    
-    public void anyadirRed(Red red) {
+    public void añadirRed(Red red) {
         if (numRedes < redes.length) {
             redes[numRedes] = red;
             numRedes++;
@@ -26,7 +25,6 @@ public class BarcoDePesca extends Barco {
     public void eliminarRed(Red red) {
         for (int i = 0; i < numRedes; i++) {
             if (redes[i].equals(red)) {
-                redes[i] = null;
                 // Mover las redes restantes hacia atrás
                 for (int j = i; j < numRedes - 1; j++) {
                     redes[j] = redes[j + 1];
@@ -38,7 +36,7 @@ public class BarcoDePesca extends Barco {
         }
         System.out.println("La red especificada no se encontró.");
     }
-
+    
     @Override
     public void realizarMantenimiento() {
         this.horasDeMantenimiento += 200; // Doble de horas de mantenimiento que un barco estándar
@@ -55,9 +53,8 @@ public class BarcoDePesca extends Barco {
         }
 
         return "Tipo de barco: Barco de Pesca\n" +
-                super.toString() + "\n" +
-                "Capacidad de carga: " + capacidadCarga + " metros cúbicos\n" +
-                "Redes de pesca: " + redesStr.toString() + "\n" +
-                "Porcentaje de capturas exitosas: " + porcentajeCapturasExitosas + "%";
+                super.toString() +
+                ",Capacidad de carga: " + capacidadCarga + " metros cúbicos"+ ",Redes de pesca: " + redesStr.toString()+ ",Porcentaje de capturas exitosas: " + porcentajeCapturasExitosas + "%";
     }
+    
 }
